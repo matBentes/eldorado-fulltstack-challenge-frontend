@@ -1,6 +1,6 @@
 export interface Book {
     isbn: String 
-    title: String 
+    name: String 
     author: String 
     pages: number
     copies: number 

@@ -1,27 +1,21 @@
 <div class="book-background">
     <div class="filter-options">
-        <div class="filter-options-wrapper">
-            <p>Isbn</p>
-            <p>title</p>
-            <p>Author</p>
-            <p>pages</p>
-            <p>copies</p>
-        </div>
+        <p>Isbn</p>
+        <p>Title</p>
+        <p>Author</p>
+        <p>Pages</p>
+        <p>Copies</p>
     </div>
-    <div class="book-item">
+    <div class="book-item" *ngFor="let book of books">
         <div class="book-item-wrapper">
-            <p>1234</p>
-            <p>Mobby Dick</p>
-            <p>Mateus Bentes</p>
-            <p>100</p>
-            <p>10</p>
+            <p>{{book.isbn}}</p>
+            <p>{{book.name}}</p>
+            <p>{{book.author}}</p>
+            <p>{{book.pages}}</p>
+            <p>{{book.copies}}</p>
             <img class="edit-icon" src="assets/svg/pen-to-square-regular.svg" />
             <img class="edit-icon" src="assets/svg/trash-solid.svg" />
         </div>
-
-    </div>
-
-    <div class="book-item">
 
     </div>
 </div>
