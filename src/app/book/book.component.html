@@ -16,6 +16,15 @@
             <img class="edit-icon" src="assets/svg/pen-to-square-regular.svg" />
             <img class="edit-icon" src="assets/svg/trash-solid.svg" />
         </div>
-
     </div>
+
+    <button (click)="dialog.showModal()" class="add-book-button">Adicionar Livro</button>
 </div>
+
+<dialog #dialog>
+    <h2>Title</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat assumenda explicabo excepturi sint harum
+        aliquid eligendi ipsam, tempora culpa iure aliquam? Error cum temporibus molestiae similique quae provident
+        doloremque sunt.</p>
+    <button (click)="dialog.close()">OK</button>
+</dialog>
