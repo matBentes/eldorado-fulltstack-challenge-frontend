@@ -14,11 +14,10 @@
                 <p>{{book.author}}</p>
                 <p>{{book.pages}}</p>
                 <p>{{book.copies}}</p>
-                <img class="edit-icon" src="assets/svg/pen-to-square-regular.svg" />
+                <img class="edit-icon" (click)="onEdit(isbn.innerHTML)" src="assets/svg/pen-to-square-regular.svg" />
                 <img (click)="confirmDelete(isbn.innerHTML, i)" class="trash-icon" src="assets/svg/trash-solid.svg" />
             </div>
         </div>
     </div>
 <button class="add-book-button" [routerLink]="['new']">Adicionar Livro</button>
-
 </div>
