@@ -15,7 +15,9 @@ export class BookService {
   constructor(private http: HttpClient) { }
 
   getBook(): Observable<Book[]> {
-    const books = this.http.get<Book[]>(this.bookUrl)
+    const books = this.http.get<Book[]>(this.bookUrl).pipe(
+      catchError(this.handleError('getBook failed', []))
+    )
     return books
   }
 
@@ -25,11 +27,18 @@ export class BookService {
     )
   }
 
-  deleteBook(isbn: string) { 
+  deleteBook(isbn: string) {
     return this.http.delete<Book>(`${this.bookUrl}/${isbn}`).pipe(
       catchError(this.handleError('deleteBook failed', isbn))
     )
-  } 
+  }
+
+  updateBook(book: Book) {
+    const { isbn } = book
+    return this.http.patch(`${this.bookUrl}/${isbn}`, book, this.httpOptions).pipe(
+      catchError(this.handleError('updateBook failed', book))
+    )
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
