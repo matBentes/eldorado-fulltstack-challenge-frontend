@@ -15,7 +15,7 @@ export class AddBookComponent implements OnInit {
   ngOnInit(): void { }
 
   addBook(book: Book) {
-    this.bookService.addBook(book).subscribe(_ => console.log("sended"))
+    return this.bookService.addBook(book)
   }
 
   deleteBook(isbn: string) {
