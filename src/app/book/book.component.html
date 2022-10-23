@@ -14,20 +14,11 @@
                 <p>{{book.author}}</p>
                 <p>{{book.pages}}</p>
                 <p>{{book.copies}}</p>
-                <img class="edit-icon" (click)="editDialog.showModal()" src="assets/svg/pen-to-square-regular.svg" />
+                <img class="edit-icon" src="assets/svg/pen-to-square-regular.svg" />
                 <img (click)="confirmDelete(isbn.innerHTML, i)" class="trash-icon" src="assets/svg/trash-solid.svg" />
-                <dialog #editDialog>
-                    <app-edit-book [book]="book" class="app-add-book"></app-edit-book>
-                    <button (click)="editDialog.close();" class="add-book-button cancel">Cancelar</button>
-                    <button (click)="updateBookFromChild(book); editDialog.close()" class="add-book-button">Atualizar</button>
-                </dialog>
             </div>
         </div>
     </div>
-    <button (click)="dialog.showModal()" class="add-book-button">Adicionar Livro</button>
+<button class="add-book-button" [routerLink]="['new']">Adicionar Livro</button>
+
 </div>
-<dialog #dialog>
-    <app-add-book class="app-add-book"></app-add-book>
-    <button (click)="dialog.close();" class="add-book-button cancel">Cancelar</button>
-    <button (click)="addBookFromChild(); dialog.close()" class="add-book-button">Cadastrar</button>
-</dialog>
