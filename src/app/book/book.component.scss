@@ -47,7 +47,8 @@
             margin-right: 50px;
         }
 
-        .edit-icon {
+        .edit-icon, .trash-icon {
+            cursor: pointer;
             width: 24px;
             height: 24px;
         }
