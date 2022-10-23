@@ -16,8 +16,13 @@ export class BookService {
 
   getBook(): Observable<Book[]> {
     const books = this.http.get<Book[]>(this.bookUrl)
-           
-    return books 
+    return books
+  }
+
+  addBook(book: Book) {
+    return this.http.post<Book>(this.bookUrl, book, this.httpOptions).pipe(
+      catchError(this.handleError('addBook failed', book))
+    )
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
