@@ -5,6 +5,7 @@ import { BookComponent } from './book/book.component';
 import { BookResolverGuard } from './guards/book-resolver.guard';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/book', pathMatch: 'full' },
   { path: 'book', component: BookComponent },
   {
     path: 'book/new',
