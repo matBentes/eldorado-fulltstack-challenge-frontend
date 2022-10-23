@@ -5,7 +5,6 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { pipe, take } from 'rxjs';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 
@@ -57,16 +56,13 @@ export class AddBookComponent implements OnInit {
   }
 
   hasError(field: string) {
-    // console.log(this.form.get(field)?.errors);
     return this.form.get(field)?.errors;
   }
 
   onSubmit() {
     this.submitted = true;
-
     if (this.form.valid) {
       this.addBook(this.form.value);
-      console.log('valid form: ', this.form.value);
       this.createdBook = true;
     }
   }

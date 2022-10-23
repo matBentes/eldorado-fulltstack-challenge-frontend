@@ -1,38 +1,101 @@
+h2 {
+  font-size: 1.8em;
+  font-family: "Roboto";
+  letter-spacing: 0.4em;
+}
 form {
-    label {
-        p {
-            font-size: 1.2em;
-            margin-top: 1em;
-        }
+  width: 50%;
+  label {
+    p {
+      font-size: 1.2em;
+      margin-top: 1em;
     }
-    input {
-        padding: 10px;
-        width: 90%;
-        border: 1px solid #cdced0;
-        font-size: 1.3em;
-        font-family: 'Roboto';
-        margin: .5em 0;
+  }
+  input {
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #cdced0;
+    font-size: 1.3em;
+    font-family: "Roboto";
+    margin: 0.5em 0;
 
-        &:focus {
-            outline: none;
-        }
+    &:focus {
+      outline: none;
+    }
 
-        &[type=number] {
-            width: 30%;
-        }
+    &[type="number"] {
+      width: 30%;
+    }
 
-        /* Remove arrow|spin from button of type number 
+    /* Remove arrow|spin from button of type number 
            in firefox and google chrome 
          */
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        /* Firefox */
-        &[type=number] {
-            -moz-appearance: textfield;
-        }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
+
+    /* Firefox */
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}
+
+.is-invalid {
+  border: 1px solid red !important;
+}
+
+.validation-error {
+  color: #dc3545;
+  margin-top: 0.4em;
+  border-left: 3px solid #dc3545;
+  padding-left: 0.2em;
+}
+
+.add-book-button {
+  background-color: transparent;
+  padding: 10px;
+  font-size: 1.2em;
+  color: #313130;
+  border-radius: 5px;
+  border: 2px solid #868686;
+  cursor: pointer;
+  margin: 0.5em 1em 0.5em 0;
+
+  &:hover {
+    background-color: #d8dee9;
+  }
+
+  &:active {
+    background-color: #d8dee9;
+    transform: translateY(4px);
+  }
+}
+
+.add-book-button.cancel {
+  border: 2px solid #ce2929;
+  color: #ce2929;
+  opacity: 0.5;
+}
+
+.book-background {
+  background-color: #f3f5f9;
+  max-width: 1588px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.alert-success {
+  margin-top: 20px;
+  color: #0c4128;
+}
+
+.buttons-wrapper {
+  margin-top: 20px;
 }
