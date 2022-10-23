@@ -1,0 +1,38 @@
+form {
+    label {
+        p {
+            font-size: 1.2em;
+            margin-top: 1em;
+        }
+    }
+    input {
+        padding: 10px;
+        width: 90%;
+        border: 1px solid #cdced0;
+        font-size: 1.3em;
+        font-family: 'Roboto';
+        margin: .5em 0;
+
+        &:focus {
+            outline: none;
+        }
+
+        &[type=number] {
+            width: 30%;
+        }
+
+        /* Remove arrow|spin from button of type number 
+           in firefox and google chrome 
+         */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        &[type=number] {
+            -moz-appearance: textfield;
+        }
+    }
+}
