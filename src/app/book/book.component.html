@@ -22,9 +22,7 @@
 </div>
 
 <dialog #dialog>
-    <h2>Title</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat assumenda explicabo excepturi sint harum
-        aliquid eligendi ipsam, tempora culpa iure aliquam? Error cum temporibus molestiae similique quae provident
-        doloremque sunt.</p>
-    <button (click)="dialog.close()">OK</button>
+    <app-add-book class="app-add-book"></app-add-book>
+    <button (click)="dialog.close()" class="add-book-button cancel">Cancelar</button>
+    <button (click)=" addBookFromChild(); dialog.close()" class="add-book-button">Cadastrar</button>
 </dialog>
