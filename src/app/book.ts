@@ -1,7 +1,7 @@
 export interface Book {
-    isbn?: String
-    name: String 
-    author: String 
-    pages: number
-    copies: number 
+  isbn?: string;
+  name: string;
+  author: string;
+  pages: number;
+  copies: number;
 }
