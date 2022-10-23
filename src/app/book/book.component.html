@@ -1,31 +1,31 @@
 <div class="book-background">
-    <div class="filter-options">
-        <p>Isbn</p>
-        <p>Title</p>
-        <p>Author</p>
-        <p>Pages</p>
-        <p>Copies</p>
-    </div>
-    <div class="book-item" *ngFor="let book of books; let i = index">
-        <div class="book-item-wrapper">
-            <p #isbn>{{book.isbn}}</p>
-            <p>{{book.name}}</p>
-            <p>{{book.author}}</p>
-            <p>{{book.pages}}</p>
-            <p>{{book.copies}}</p>
-            <img class="edit-icon" (click)="editDialog.showModal()" src="assets/svg/pen-to-square-regular.svg" />
-            <img (click)="confirmDelete(isbn.innerHTML, i)" class="trash-icon" src="assets/svg/trash-solid.svg" />
-            <dialog #editDialog>
-                <app-edit-book [book]="book" class="app-add-book"></app-edit-book>
-                <button (click)="editDialog.close();" class="add-book-button cancel">Cancelar</button>
-                <button (click)="addBookFromChild(); editDialog.close()" class="add-book-button">Atualizar</button>
-            </dialog>
+    <div>
+        <div class="filter-options">
+            <p>Isbn</p>
+            <p>Title</p>
+            <p>Author</p>
+            <p>Pages</p>
+            <p>Copies</p>
+        </div>
+        <div class="book-item" *ngFor="let book of books; let i = index">
+            <div class="book-item-wrapper">
+                <p #isbn>{{book.isbn}}</p>
+                <p>{{book.name}}</p>
+                <p>{{book.author}}</p>
+                <p>{{book.pages}}</p>
+                <p>{{book.copies}}</p>
+                <img class="edit-icon" (click)="editDialog.showModal()" src="assets/svg/pen-to-square-regular.svg" />
+                <img (click)="confirmDelete(isbn.innerHTML, i)" class="trash-icon" src="assets/svg/trash-solid.svg" />
+                <dialog #editDialog>
+                    <app-edit-book [book]="book" class="app-add-book"></app-edit-book>
+                    <button (click)="editDialog.close();" class="add-book-button cancel">Cancelar</button>
+                    <button (click)="addBookFromChild(); editDialog.close()" class="add-book-button">Atualizar</button>
+                </dialog>
+            </div>
         </div>
     </div>
-
     <button (click)="dialog.showModal()" class="add-book-button">Adicionar Livro</button>
 </div>
-
 <dialog #dialog>
     <app-add-book class="app-add-book"></app-add-book>
     <button (click)="dialog.close();" class="add-book-button cancel">Cancelar</button>
