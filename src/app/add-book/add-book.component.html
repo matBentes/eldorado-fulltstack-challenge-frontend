@@ -15,13 +15,13 @@
           class="validation-error"
           *ngIf="hasError('name')?.['required'] && submitted"
         >
-          Informe um name
+          Nome não deve ser vazio.
         </div>
         <div
           class="validation-error"
           *ngIf="hasError('name')?.['minlength'] && submitted"
         >
-          no minimo
+          Nome deve possuir no mínimo 3 caracteres.
         </div>
         <div
           class="validation-error"
@@ -46,13 +46,13 @@
           class="validation-error"
           *ngIf="hasError('author')?.['required'] && submitted"
         >
-          Informe um author
+          Autor não deve ser vazio.
         </div>
         <div
           class="validation-error"
           *ngIf="hasError('author')?.['minlength'] && submitted"
         >
-          no minimo
+          Autor deve possuir no mínimo 2 caracteres.
         </div>
         <div
           class="validation-error"
@@ -78,14 +78,14 @@
           class="validation-error"
           *ngIf="hasError('pages')?.['required'] && submitted"
         >
-          Informe um pages
+          Página não deve ser vazio.
         </div>
         <div
           class="validation-error"
-          *ngIf="hasError('pages')?.['minlength'] && submitted"
+          *ngIf="hasError('copies')?.['pattern'] && submitted"
         >
-          no minimo
-        </div>
+          Não pode ser 0.
+        </div>        
         <div
           class="validation-error"
           *ngIf="hasError('pages') && hasError('pages')?.['maxlength'] && submitted"
@@ -110,13 +110,13 @@
           class="validation-error"
           *ngIf="hasError('copies')?.['required'] && submitted"
         >
-          Informe um copies
+          Cópias não deve ser vazio.
         </div>
         <div
           class="validation-error"
-          *ngIf="hasError('copies')?.['minlength'] && submitted"
+          *ngIf="hasError('copies')?.['pattern'] && submitted"
         >
-          no minimo
+          Não pode ser 0.
         </div>
         <div
           class="validation-error"
@@ -131,11 +131,16 @@
 
   <div class="buttons-wrapper">
     <button (click)="onSubmit()" class="add-book-button">Salvar</button>
-    <button (click)="onCancel()" [routerLink]="['/book']" class="add-book-button cancel">Cancelar</button>
+    <button
+      (click)="onCancel()"
+      [routerLink]="['/book']"
+      class="add-book-button cancel"
+    >
+      Cancelar
+    </button>
   </div>
 
   <div *ngIf="createdBook" class="alert-success">
     <p>Livro salvo com sucesso!</p>
   </div>
-  
 </div>
