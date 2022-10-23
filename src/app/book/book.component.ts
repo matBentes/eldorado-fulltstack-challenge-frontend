@@ -13,7 +13,7 @@ export class BookComponent implements OnInit {
 
   @ViewChild(AddBookComponent, { static: true })
   child!: AddBookComponent;
-  
+
   constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
@@ -26,5 +26,9 @@ export class BookComponent implements OnInit {
 
   addBookFromChild() {
     this.child.addBook(this.child.book)
+  }
+
+  deleteBookFromChild(isbn: string) {
+    this.child.deleteBook(isbn)
   }
 }

@@ -8,13 +8,13 @@
     </div>
     <div class="book-item" *ngFor="let book of books">
         <div class="book-item-wrapper">
-            <p>{{book.isbn}}</p>
+            <p #isbn >{{book.isbn}}</p>
             <p>{{book.name}}</p>
             <p>{{book.author}}</p>
             <p>{{book.pages}}</p>
             <p>{{book.copies}}</p>
             <img class="edit-icon" src="assets/svg/pen-to-square-regular.svg" />
-            <img class="trash-icon" src="assets/svg/trash-solid.svg" />
+            <img (click)="deleteBookFromChild(isbn.innerHTML)" class="trash-icon" src="assets/svg/trash-solid.svg" />
         </div>
     </div>
 

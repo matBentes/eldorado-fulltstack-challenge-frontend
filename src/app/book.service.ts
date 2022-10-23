@@ -25,6 +25,12 @@ export class BookService {
     )
   }
 
+  deleteBook(isbn: string) { 
+    return this.http.delete<Book>(`${this.bookUrl}/${isbn}`).pipe(
+      catchError(this.handleError('deleteBook failed', isbn))
+    )
+  } 
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
