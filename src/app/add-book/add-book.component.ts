@@ -45,12 +45,14 @@ export class AddBookComponent implements OnInit {
       pages: new FormControl(book.pages, [
         Validators.required,
         Validators.minLength(2),
+        Validators.pattern(/^[1-9]/),
         Validators.maxLength(190),
       ]),
       copies: new FormControl(book.copies, [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(190),
+        Validators.pattern(/^[1-9]/),
       ]),
     });
   }
