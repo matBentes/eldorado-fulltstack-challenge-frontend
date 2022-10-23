@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { AddBookComponent } from './add-book/add-book.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
@@ -20,6 +20,7 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

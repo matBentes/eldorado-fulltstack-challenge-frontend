@@ -1,26 +1,142 @@
-<form>
+<div class="book-background">
+  <h2>CADASTRAR LIVRO</h2>
+  <form novalidate [formGroup]="form">
     <div>
-        <label>
-            <p>Nome do Livro</p>
-            <input [(ngModel)]="book.name" name="name" placeholder="ex.: Harry Potter" />
-        </label>
+      <label for="nome">
+        <p>Nome do Livro</p>
+        <input
+          id="nome"
+          name="name"
+          placeholder="ex.: Harry Potter"
+          formControlName="name"
+          [ngClass]="{ 'is-invalid': submitted && hasError('name') }"
+        />
+        <!-- Error Validations name -->
+        <div
+          class="validation-error"
+          *ngIf="hasError('name')?.['required'] && submitted"
+        >
+          Informe um name
+        </div>
+        <div
+          class="validation-error"
+          *ngIf="hasError('name')?.['minlength'] && submitted"
+        >
+          no minimo
+        </div>
+        <div
+          class="validation-error"
+          *ngIf="hasError('name') && hasError('name')?.['maxlength'] && submitted"
+        >
+          no maximo
+        </div>
+        <!-- End Of Error Validations Nome -->
+      </label>
     </div>
     <div>
-        <label>
-            <p>Autor</p>
-            <input [(ngModel)]="book.author" name="author" placeholder="ex.: J.K" />
-        </label>
+      <label>
+        <p>Autor</p>
+        <input
+          name="author"
+          placeholder="ex.: J.K"
+          formControlName="author"
+          [ngClass]="{ 'is-invalid': hasError('author') && submitted }"
+        />
+        <!-- Error Validations author -->
+        <div
+          class="validation-error"
+          *ngIf="hasError('author')?.['required'] && submitted"
+        >
+          Informe um author
+        </div>
+        <div
+          class="validation-error"
+          *ngIf="hasError('author')?.['minlength'] && submitted"
+        >
+          no minimo
+        </div>
+        <div
+          class="validation-error"
+          *ngIf="hasError('author') && hasError('author')?.['maxlength'] && submitted"
+        >
+          no maximo
+        </div>
+        <!-- End Of Error Validations author -->
+      </label>
     </div>
     <div>
-        <label>
-            <p>Numero de páginas</p>
-            <input [(ngModel)]="book.pages" name="pages" type="number" placeholder="ex.: 521" />
-        </label>
+      <label>
+        <p>Numero de páginas</p>
+        <input
+          name="pages"
+          type="number"
+          placeholder="ex.: 521"
+          formControlName="pages"
+          [ngClass]="{ 'is-invalid': hasError('pages') && submitted }"
+        />
+        <!-- Error Validations pages -->
+        <div
+          class="validation-error"
+          *ngIf="hasError('pages')?.['required'] && submitted"
+        >
+          Informe um pages
+        </div>
+        <div
+          class="validation-error"
+          *ngIf="hasError('pages')?.['minlength'] && submitted"
+        >
+          no minimo
+        </div>
+        <div
+          class="validation-error"
+          *ngIf="hasError('pages') && hasError('pages')?.['maxlength'] && submitted"
+        >
+          no maximo
+        </div>
+        <!-- End Of Error Validations pages -->
+      </label>
     </div>
     <div>
-        <label>
-            <p>Cópias disponíveis</p>
-            <input [(ngModel)]="book.copies" name="copies" type="number" placeholder="ex.: 50" />
-        </label>
+      <label>
+        <p>Cópias disponíveis</p>
+        <input
+          name="copies"
+          type="number"
+          placeholder="ex.: 50"
+          formControlName="copies"
+          [ngClass]="{ 'is-invalid': hasError('copies') && submitted }"
+        />
+        <!-- Error Validations copies -->
+        <div
+          class="validation-error"
+          *ngIf="hasError('copies')?.['required'] && submitted"
+        >
+          Informe um copies
+        </div>
+        <div
+          class="validation-error"
+          *ngIf="hasError('copies')?.['minlength'] && submitted"
+        >
+          no minimo
+        </div>
+        <div
+          class="validation-error"
+          *ngIf="hasError('copies') && hasError('copies')?.['maxlength'] && submitted"
+        >
+          no maximo
+        </div>
+        <!-- End Of Error Validations copies -->
+      </label>
     </div>
-</form>
+  </form>
+
+  <div class="buttons-wrapper">
+    <button (click)="onSubmit()" class="add-book-button">Cadastrar</button>
+    <button (click)="onCancel()" [routerLink]="['/book']" class="add-book-button cancel">Cancelar</button>
+  </div>
+
+  <div *ngIf="createdBook" class="alert-success">
+    <p>Livro criado com sucesso!</p>
+  </div>
+  
+</div>
