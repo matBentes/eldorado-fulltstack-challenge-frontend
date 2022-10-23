@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 
@@ -20,35 +21,38 @@ export class AddBookComponent implements OnInit {
   submitted = false;
   createdBook = false;
 
-  constructor(private bookService: BookService) {}
+  constructor(
+    private fb: FormBuilder,
+    private bookService: BookService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    const book = this.route.snapshot.data['book'];
+
     this.form = new FormGroup({
-      name: new FormControl(this.book.name, [
+      isbn: new FormControl(book.isbn),
+      name: new FormControl(book.name, [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(190),
       ]),
-      author: new FormControl(this.book.author, [
+      author: new FormControl(book.author, [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(190),
       ]),
-      pages: new FormControl(this.book.author, [
+      pages: new FormControl(book.pages, [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(190),
       ]),
-      copies: new FormControl(this.book.author, [
+      copies: new FormControl(book.copies, [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(190),
       ]),
     });
-  }
-
-  addBook(book: Book) {
-    return this.bookService.addBook(book).subscribe();
   }
 
   deleteBook(isbn: string) {
@@ -62,14 +66,16 @@ export class AddBookComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
-      this.addBook(this.form.value);
       this.createdBook = true;
+      this.bookService
+        .save(this.form.value)
+        .subscribe({ complete: console.log, error: console.log });
+      console.log(this.form.value.isbn);
     }
   }
 
   onCancel() {
     this.submitted = false;
     this.form.reset();
-    console.log('onCancel');
   }
 }
