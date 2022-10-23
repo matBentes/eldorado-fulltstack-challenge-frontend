@@ -1,5 +1,4 @@
 <div class="book-background">
-  <h2>CADASTRAR LIVRO</h2>
   <form novalidate [formGroup]="form">
     <div>
       <label for="nome">
@@ -131,12 +130,12 @@
   </form>
 
   <div class="buttons-wrapper">
-    <button (click)="onSubmit()" class="add-book-button">Cadastrar</button>
+    <button (click)="onSubmit()" class="add-book-button">Salvar</button>
     <button (click)="onCancel()" [routerLink]="['/book']" class="add-book-button cancel">Cancelar</button>
   </div>
 
   <div *ngIf="createdBook" class="alert-success">
-    <p>Livro criado com sucesso!</p>
+    <p>Livro salvo com sucesso!</p>
   </div>
   
 </div>
