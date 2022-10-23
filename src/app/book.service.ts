@@ -1,43 +1,54 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable, of, throwError } from 'rxjs'
-import { catchError, retry, tap } from 'rxjs/operators'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, retry, take, tap } from 'rxjs/operators';
 import { Book } from './book';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookService {
   private bookUrl = 'http://localhost:3333/book';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  }
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getBook(): Observable<Book[]> {
-    const books = this.http.get<Book[]>(this.bookUrl).pipe(
-      catchError(this.handleError('getBook failed', []))
-    )
-    return books
+    const books = this.http
+      .get<Book[]>(this.bookUrl)
+      .pipe(catchError(this.handleError('getBook failed', [])));
+    return books;
   }
 
-  addBook(book: Book) {
-    return this.http.post<Book>(this.bookUrl, book, this.httpOptions).pipe(
-      catchError(this.handleError('addBook failed', book))
-    )
+  private addBook(book: Book) {
+    return this.http
+      .post<Book>(this.bookUrl, book, this.httpOptions)
+      .pipe(catchError(this.handleError('addBook failed', book)));
   }
 
   deleteBook(isbn: string) {
-    return this.http.delete<Book>(`${this.bookUrl}/${isbn}`).pipe(
-      catchError(this.handleError('deleteBook failed', isbn))
-    )
+    return this.http
+      .delete<Book>(`${this.bookUrl}/${isbn}`)
+      .pipe(catchError(this.handleError('deleteBook failed', isbn)));
   }
 
-  updateBook(book: Book) {
-    const { isbn } = book
-    return this.http.patch(`${this.bookUrl}/${isbn}`, book, this.httpOptions).pipe(
-      catchError(this.handleError('updateBook failed', book))
-    )
+  private updateBook(book: Book) {
+    const { isbn } = book;
+    return this.http
+      .patch(`${this.bookUrl}/${isbn}`, book, this.httpOptions)
+      .pipe(catchError(this.handleError('updateBook failed', book)));
+  }
+
+  loadByIsbn(isbn: any) {
+    return this.http.get<Book>(`${this.bookUrl}/${isbn}`);
+  }
+
+  save(book: Book) {
+    if (book.isbn) {
+      return this.updateBook(book);
+    }
+    return this.addBook(book);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
