@@ -19,7 +19,7 @@
                 <dialog #editDialog>
                     <app-edit-book [book]="book" class="app-add-book"></app-edit-book>
                     <button (click)="editDialog.close();" class="add-book-button cancel">Cancelar</button>
-                    <button (click)="addBookFromChild(); editDialog.close()" class="add-book-button">Atualizar</button>
+                    <button (click)="updateBookFromChild(book); editDialog.close()" class="add-book-button">Atualizar</button>
                 </dialog>
             </div>
         </div>

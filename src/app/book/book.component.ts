@@ -12,10 +12,10 @@ import { EditBookComponent } from '../edit-book/edit-book.component';
 export class BookComponent implements OnInit {
   books: Book[] = []
 
-  @ViewChild(AddBookComponent, { static: true })
+  @ViewChild(AddBookComponent)
   child!: AddBookComponent;
 
-  @ViewChild(AddBookComponent, { static: true })
+  @ViewChild(EditBookComponent)
   childEdit!: EditBookComponent;
 
   constructor(private bookService: BookService) { }

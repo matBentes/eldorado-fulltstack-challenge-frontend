@@ -15,8 +15,7 @@ export class EditBookComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  updateBook(book: Book) {
-    this.bookService.updateBook(book)    
+  updateBook(book: Book) {   
+    this.bookService.updateBook(book).subscribe()
   }
-
 }
