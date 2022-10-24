@@ -12,7 +12,8 @@ CRUD de um sistema de biblioteca feito em Angular com os campos de ISBN, Name, A
 
 ## Demonstração
 O app está rodando em: https://library-system-angular.web.app/book
-o backend está disponível até 29/11: https://eldorado-challenge-fullstack.herokuapp.com/book
+
+O backend está disponível para receber requisições em até 29/11: https://eldorado-challenge-fullstack.herokuapp.com/book
 
 Clone o projeto e, na pasta dele, execute os comandos para subir a aplicação.
 
