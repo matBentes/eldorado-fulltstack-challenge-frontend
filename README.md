@@ -1,27 +1,39 @@
-# Frontend
+# Eldorado FullStack Challenge - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+![list of books](https://github.com/matBentes/eldorado-fulltstack-challenge-frontend/blob/main/images/list-book.png)
 
-## Development server
+<table>
+<tr>
+<td>
+CRUD de um sistema de biblioteca feito em Angular com os campos de ISBN, Name, Author, Copies, Pages. As funcionalidades incluídas nessa aplicação são de Listar, Criar, Editar, Deletar.
+</td>
+</tr>
+</table>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Demonstração
+O app está rodando em: https://library-system-angular.web.app/book
+o backend está disponível até 29/11: https://eldorado-challenge-fullstack.herokuapp.com/book
 
-## Code scaffolding
+Clone o projeto e, na pasta dele, execute os comandos para subir a aplicação.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Setup
 
-## Build
+```bash
+npm i
+npm start
+```
+## Funcionalidades 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Criar 
+![add book](https://github.com/matBentes/eldorado-fulltstack-challenge-frontend/blob/main/images/add-book.png)
 
-## Running unit tests
+### Editar
+![edit book](https://github.com/matBentes/eldorado-fulltstack-challenge-frontend/blob/main/images/edit-book.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Deletar 
+![delete book](https://github.com/matBentes/eldorado-fulltstack-challenge-frontend/blob/main/images/delete-book.png)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## TODO 
+- Adicionar casos de testes 
+- Transformar em componentes códigos parecidos para reduzir o boilerplat
+- Implementar CI/CD 
