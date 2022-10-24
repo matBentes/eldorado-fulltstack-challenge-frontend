@@ -21,7 +21,7 @@ Clone o projeto e, na pasta dele, execute os comandos para subir a aplicação.
 
 ```bash
 npm i
-npm start
+npm run start
 ```
 ## Funcionalidades 
 
