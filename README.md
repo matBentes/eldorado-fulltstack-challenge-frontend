@@ -13,11 +13,20 @@ CRUD de um sistema de biblioteca feito em Angular com os campos de ISBN, Name, A
 ## Demonstração
 O app está rodando em: https://library-system-angular.web.app/book
 
-O backend está disponível para receber requisições em até 29/11: https://eldorado-challenge-fullstack.herokuapp.com/book
+
+## Backend 
+Este projeto está usando um serviço real com deploy no heroku, que você pode ver [aqui](https://eldorado-challenge-fullstack.herokuapp.com/book). O servidor está usando Prisma, Postgres (apenas em produção, localmente, o banco é MySQL).
+
+Para conferir o repositório do backend, acesse [aqui](https://github.com/matBentes/eldorado-fulltstack-challenge/tree/main/backend).
+
+## O que está incluído 
+- [x] SCSS utilizado para etilizar os components. 
+- [x] Guards para diminuir o boilerplat.
+- [x] Validações simples de campos   
+- [x] Seguindo as [melhores práticas](https://angular.io/guide/styleguide)
+## Setup
 
 Clone o projeto e, na pasta dele, execute os comandos para subir a aplicação.
-
-## Setup
 
 ```bash
 npm i
