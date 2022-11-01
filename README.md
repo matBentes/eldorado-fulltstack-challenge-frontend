@@ -20,7 +20,7 @@ Este projeto está usando um serviço real com deploy no heroku, que você pode 
 Para conferir o repositório do backend, acesse [aqui](https://github.com/matBentes/eldorado-fulltstack-challenge/tree/main/backend).
 
 ## O que está incluído 
-- [x] SCSS utilizado para etilizar os components. 
+- [x] SCSS utilizado para estilizar os components. 
 - [x] Guards para diminuir o boilerplat.
 - [x] Validações simples de campos   
 - [x] Seguindo as [melhores práticas](https://angular.io/guide/styleguide)
